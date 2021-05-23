@@ -20,4 +20,17 @@ public class Supplier {
     private String state;
     private String address;
 
+    public Supplier() {}
+
+    public Supplier(String name, String state, String address) {
+        this.name = name;
+        this.state = state;
+        this.address = address;
+    }
+
+    public Supplier(SupplierDTO supplierDTO) {
+        this.name = supplierDTO.getName();
+        this.state = supplierDTO.getState();
+        this.address = supplierDTO.getAddress();
+    }
 }

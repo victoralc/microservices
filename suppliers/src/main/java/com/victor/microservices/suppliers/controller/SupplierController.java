@@ -1,11 +1,9 @@
 package com.victor.microservices.suppliers.controller;
 
 import com.victor.microservices.suppliers.model.Supplier;
+import com.victor.microservices.suppliers.model.SupplierDTO;
 import com.victor.microservices.suppliers.service.SupplierService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/suppliers")
@@ -18,7 +16,12 @@ public class SupplierController {
     }
 
     @GetMapping("/info/{state}")
-    public Supplier getSupplierInfo(@PathVariable String state){
+    public Supplier getSupplierInfo(@PathVariable String state) {
         return this.supplierService.getSupplierInfo(state);
+    }
+
+    @PostMapping
+    public Supplier createNewSupplier(@RequestBody SupplierDTO supplierDTO) {
+        return this.supplierService.createSupplier(supplierDTO);
     }
 }

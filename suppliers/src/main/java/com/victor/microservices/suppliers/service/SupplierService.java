@@ -1,6 +1,7 @@
 package com.victor.microservices.suppliers.service;
 
 import com.victor.microservices.suppliers.model.Supplier;
+import com.victor.microservices.suppliers.model.SupplierDTO;
 import com.victor.microservices.suppliers.repository.SupplierRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,10 @@ public class SupplierService {
 
     public Supplier getSupplierInfo(String state){
         return this.supplierRepository.findByState(state);
+    }
+
+    public Supplier createSupplier(SupplierDTO supplierDTO) {
+        return this.supplierRepository.save(new Supplier(supplierDTO));
     }
 
 }

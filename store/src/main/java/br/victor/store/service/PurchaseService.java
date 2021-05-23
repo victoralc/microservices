@@ -10,10 +10,18 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class PurchaseService {
 
+    private final RestTemplate client;
+
+    public PurchaseService(RestTemplate client) {
+        this.client = client;
+    }
+
     public void createPurchase(PurchaseDTO purchaseParams) {
-        RestTemplate client = new RestTemplate();
-        ResponseEntity<SupplierInfoDTO> exchange = client.exchange("http://localhost:8081/suppliers/info/" + purchaseParams.getState().getAbbreviation(),
+        ResponseEntity<SupplierInfoDTO> exchange =
+                client.exchange("http://suppliers/info/" + purchaseParams.getState().getAbbreviation(),
                 HttpMethod.GET, null, SupplierInfoDTO.class);
+
+        System.out.println(exchange.getBody().getAddress());
     }
 
 }
