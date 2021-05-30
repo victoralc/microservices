@@ -1,22 +1,6 @@
 server:
   port: 8081
 
-spring:
-  application:
-    name: suppliers
-  datasource:
-    username: root
-    password: victor123
-    url: jdbc:mysql://localhost:3306/suppliers?useTimezone=true&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
-
 eureka:
   client:
     register-with-eureka: true
